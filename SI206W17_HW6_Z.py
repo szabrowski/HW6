@@ -35,7 +35,7 @@ class Student():
         self.num_programs = self.num_programs + x
 
     def program_productivity(self):
-        productivity = (self.num_programs)/(self.years_UM)
+        productivity = float(self.num_programs)/(self.years_UM)
         return (productivity)
 
 #### DONE WITH STUDENT CLASS DEFINITION
@@ -152,8 +152,17 @@ print("\n\n***** Problem 6 *****")
 
 # for x in programmers:
 #     print (zip(names_x, programming_productivity))
+# def program_productivity(input_x):
+#     print (input_x)
+#     productivity = (Student(input_x).num_programs)/(Student(input_x).years_UM)
+#     return (productivity)
 
-print (Student('Albert', 1, 10).program_productivity())
+
+prod_iter = map(Student.program_productivity, programmers)
+print (prod_iter)
+
+prod_list = list(prod_iter)
+#print (Student('Albert', 1, 10).program_productivity())
 
 
 #print (Student().program_productivity())
