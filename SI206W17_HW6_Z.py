@@ -212,12 +212,12 @@ for x in programmers:
 print (names_x)
 
 
-long_names = filter(lambda x: x > 5, [len(x.name) for x in lst3])
+long_names = filter(lambda x: len(x.name) > 5, [(x) for x in lst3])
 print (long_names)
 
 ## Then write code to cast the value of long_names to a list and save it in the variable long_names_list. 
 
-#long_names_list = list(long_names)
+long_names_list = list(long_names)
 
 
 ## [PROBLEM 9]
@@ -227,8 +227,13 @@ print("\n\n***** Problem 9 *****")
 
 ## Note that you can use another list you have already created for this problem.
 
-#names_with_not_too_much_seniority = [x for x in ]
+# for x in student_tups:
+#     if len(x[0]) > x[1]:
+#         print (x[0])
 
+names_with_not_too_much_seniority = [x[0] for x in student_tups if len(x[0]) > x[1]]
+
+print (names_with_not_too_much_seniority)
 
 
 ## [PROBLEM 10]
@@ -264,18 +269,44 @@ def readfiles(file_list):
     return lst_lines[0]
 
 
+def len_check(file_lines):
+    # for x in file_lines:
+    #     #print (len(x))
+    #     if len(x)>40:
+    #         #print (x)
+    #         yield x
+    for x in file_lines:
+        if len(x) > 40:
+            #print (x)
+            yield (x)
+    #yield (x for x in file_lines if len(x)>40)
+    # for x in file_lines:
+    #     if len(x) > 40:
+    #         print (x)
+    #         return x
+
+
 #print (readfiles(["samplehw6_1.txt","samplehw6_2.txt"]))
 # Define len_check
 
 
 # Define main_filterer
 
+def main_filterer(filenames):
+    # ss = readfiles(filenames)
+    # ff = len_check(ss)
+    # print (ff)
+    # yield ff
+    yield list(len_check(readfiles(filenames)))
 
-
-## Uncomment this code to test so you can see easily what results from your code. DO uncomment it. DO NOT delete or change it. (You can add other code above while you work, of course.)
 # provided_file_names = ["samplehw6_1.txt","samplehw6_2.txt"]
 # for ln in main_filterer(provided_file_names):
-#     print(ln.rstrip('\n'), end=" ")
+#     print (ln)
+
+# ## Uncomment this code to test so you can see easily what results from your code. DO uncomment it. DO NOT delete or change it. (You can add other code above while you work, of course.)
+# provided_file_names = ["samplehw6_1.txt","samplehw6_2.txt"]
+# for ln in main_filterer(provided_file_names):
+#     print(ln.rstrip('\n'), end = " ")
 #####
 
 
